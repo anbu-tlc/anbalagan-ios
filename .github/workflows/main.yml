@@ -1,0 +1,6 @@
+name: test
+on: [pull]
+jobs: 
+   test
+   runs on: ubuntu-latest
+   
