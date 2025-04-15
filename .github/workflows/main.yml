@@ -1,6 +1,10 @@
 name: test
+run-name: teting out Github Actions
 on: [pull]
-jobs: 
-   test
-   runs on: ubuntu-latest
-   
+jobs:
+  test
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository code
+        uses: actions/checkout@v4
+    
