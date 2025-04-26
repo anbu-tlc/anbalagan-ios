@@ -1,0 +1,6 @@
+name: "my workflow"
+on: [ push ]
+permissions: read-all
+jobs:
+  test-jobs:
+    runs-on: ubuntu-latest
