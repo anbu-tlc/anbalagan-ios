@@ -1,10 +1,32 @@
-name: test
-run-name: teting out Github Actions
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs: 
+      logLevel:
+        description: "Log Level"
+        type: choice
+        required: true
+        default: 'warning'
+        options:
+          - info
+          - warning
+          - debug
+      print_tags:
+        description: "the true passed for STDOUT"
+        type: boolean
+        required: true
+      tags:
+        description: 'test scenario tags'
+        type: string
+        required: true
+      environment:
+        description: 'Environment to run test against'
+        type: environment
+        required: true
 jobs:
-  test:
+  print-tag:
     runs-on: ubuntu-latest
+    if: ${{ inputs.print_tags}}
     steps:
-      - name: checkout repository code
-        uses: actions/checkout@v4
-    
+      - name: print the input tag to the STDOUT
+        run: echo 'the tags are ${{ inputs.tags }}'
+        
