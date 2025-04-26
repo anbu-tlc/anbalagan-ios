@@ -1,6 +1,8 @@
 name: "my workflow"
 on: [ push ]
 permissions: read-all
+env:
+  SERVER: production
 jobs:
   test-jobs:
     runs-on: ubuntu-latest
